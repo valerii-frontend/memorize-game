@@ -1,13 +1,100 @@
-body {
+* {
+  box-sizing: border-box;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  padding: 0;
+}
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background: #333;
+  color: #f8eca0;
+  text-align: center;
+}
+h1 {
+  margin: 2rem 0;
+}
+button {
+  background-color: #321d0d;
+  border-top: 2px solid #b0aca0;
+  border-left: 2px solid #605040;
+  border-right: 2px solid black;
+  border-bottom: 2px solid black;
+  color: inherit;
+  text-transform: uppercase;
+  font-size: 1.25rem;
+  padding: 1rem 2rem;
+  cursor: pointer;
+  margin-bottom: 5rem;
+}
+button:hover {
+  background-color: #201208;
+}
+button:active {
+  border-bottom: 2px solid #b0aca0;
+  border-right: 2px solid #605040;
+  border-left: 2px solid black;
+  border-top: 2px solid black;
+  transform: scale(0.98);
+  transition: 0.2s;
+}
+.board {
+  display: flex;
+  flex-wrap: wrap;
+  width: 420px;
+  height: 420px;
+  margin: 0 auto;
+  border: 10px solid transparent;
+  border-image: url("../public/images/frame.png") 30 round;
+  background-color: grey;
+}
+.card {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 100px;
+  height: 100px;
+
+  border: 2px solid transparent;
+  border-top: 2px solid #b0aca0;
+  border-left: 2px solid #605040;
+  border-right: 2px solid black;
+  border-bottom: 2px solid black;
+
+  filter: grayscale(0.5);
+}
+.card:hover {
+  filter: brightness(1.2) grayscale(0);
+  cursor: pointer;
+}
+.card__front {
+  transform: rotateX(90deg);
+  position: absolute;
+  transition: 0.3s;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  top: 0;
+  left: 0;
+}
+.card__flip .card__front {
+  transform: rotateX(0deg);
+  transition-delay: 0.3s;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.card__back {
+  transition: 0.3s;
+  transition-delay: 0.3s;
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.card__flip .card__back {
+  transform: rotateX(90deg);
+  transition-delay: 0s;
+}
+
+.turns {
+  font-size: 2.5rem;
+  margin-top: 5rem;
 }
