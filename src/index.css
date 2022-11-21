@@ -9,8 +9,15 @@ body {
   color: #f8eca0;
   text-align: center;
 }
-h1 {
-  margin: 2rem 0;
+.App {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  max-width: 1200px;
+  padding: 1rem;
+  margin: 0 auto;
+  gap: 2rem 0;
 }
 button {
   background: url("../public/images/back.png");
@@ -23,7 +30,6 @@ button {
   font-size: 1.25rem;
   padding: 1rem 2rem;
   cursor: pointer;
-  margin-bottom: 5rem;
 }
 
 button:active {
@@ -34,6 +40,26 @@ button:active {
   transform: scale(0.98);
   transition: 0.2s;
 }
+.control {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1rem;
+}
+.control span {
+  margin-right: 10px;
+  padding: 5px;
+  border: 1px solid #f8eca0;
+  cursor: pointer;
+}
+.control span.active {
+  background-color: #f8eca0;
+  color: #605040;
+}
+.turns {
+  flex: 0 0 100%;
+}
 .board {
   display: flex;
   flex-wrap: wrap;
@@ -43,6 +69,14 @@ button:active {
   border: 10px solid transparent;
   border-image: url("../public/images/frame.png") 30 round;
   background-color: grey;
+}
+.board.medium {
+  width: 620px;
+  height: 620px;
+}
+.board.hard {
+  width: 820px;
+  height: 620px;
 }
 .card {
   position: relative;
@@ -89,8 +123,7 @@ button:active {
 }
 
 .turns {
-  font-size: 2.5rem;
-  margin-top: 5rem;
+  font-size: 2rem;
 }
 .card_matched {
   filter: brightness(1.2) grayscale(0);
@@ -117,19 +150,8 @@ button:active {
     margin-bottom: 3rem;
     max-width: 420px;
   }
-  .turns {
-    margin-top: 2rem;
-    font-size: 2rem;
-  }
 }
 @media (max-width: 440px) {
-  .App {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    align-items: center;
-    min-height: 100vh;
-  }
   .board {
     width: 320px;
     height: 320px;
@@ -140,8 +162,7 @@ button:active {
   }
   .board,
   h1,
-  button,
-  .turns {
+  .control {
     margin: 0;
   }
 }
@@ -154,5 +175,8 @@ button:active {
   button:hover {
     filter: brightness(0.85);
     color: white;
+  }
+  .control span:hover {
+    background-color: #b0aca0;
   }
 }
