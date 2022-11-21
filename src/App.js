@@ -10,6 +10,7 @@ const images = [
   { src: "/images/power.png", matched: false },
   { src: "/images/sorcery.png", matched: false },
   { src: "/images/leadership.png", matched: false },
+  //   { src: "/images/resistance.png", matched: false },
 ];
 
 const App = () => {
@@ -27,7 +28,11 @@ const App = () => {
   };
   //   click
   const checkCards = (card) => {
-    pickFirst ? setPickSecond(card) : setPickFirst(card);
+    if (pickFirst) {
+      setPickSecond(card);
+    } else {
+      setPickFirst(card);
+    }
   };
   //   compare
   const turnsCounter = () => {

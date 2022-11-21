@@ -25,10 +25,7 @@ button {
   cursor: pointer;
   margin-bottom: 5rem;
 }
-button:hover {
-  filter: brightness(0.85);
-  color: white;
-}
+
 button:active {
   border-bottom: 2px solid #b0aca0;
   border-right: 2px solid #605040;
@@ -62,10 +59,6 @@ button:active {
   border-bottom: 2px solid black;
 
   filter: grayscale(0.5);
-}
-.card:hover {
-  filter: brightness(1.2) grayscale(0);
-  cursor: pointer;
 }
 .card__front {
   transform: rotateX(90deg);
@@ -113,4 +106,53 @@ button:active {
   z-index: 1;
   opacity: 0.5;
   pointer-events: none;
+}
+
+@media (max-width: 576px) {
+  h1 {
+    font-size: 1.25rem;
+    margin: 1rem 0;
+  }
+  button {
+    margin-bottom: 3rem;
+    max-width: 420px;
+  }
+  .turns {
+    margin-top: 2rem;
+    font-size: 2rem;
+  }
+}
+@media (max-width: 440px) {
+  .App {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    min-height: 100vh;
+  }
+  .board {
+    width: 320px;
+    height: 320px;
+  }
+  .card {
+    flex: 0 0 75px;
+    height: 75px;
+  }
+  .board,
+  h1,
+  button,
+  .turns {
+    margin: 0;
+  }
+}
+
+@media (min-width: 992px) {
+  .card:hover {
+    filter: brightness(1.2) grayscale(0);
+    cursor: pointer;
+  }
+  button:hover {
+    filter: brightness(0.85);
+    color: white;
+  }
 }

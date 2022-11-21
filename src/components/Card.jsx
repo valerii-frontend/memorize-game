@@ -1,6 +1,6 @@
 const Card = ({ card, checkCards, flip, disabled }) => {
   const clickCard = () => {
-    if (!disabled && !card.matched) {
+    if (!disabled && !card.matched && !flip) {
       checkCards(card);
     }
   };
