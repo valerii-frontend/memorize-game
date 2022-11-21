@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/memorize-game/static/css/main.688166a8.css",
-    "main.js": "/memorize-game/static/js/main.cff3d6e9.js",
+    "main.js": "/memorize-game/static/js/main.eba34abd.js",
     "static/media/frame.png": "/memorize-game/static/media/frame.8fb3333625dcd349cb81.png",
     "static/media/back.png": "/memorize-game/static/media/back.459de01af89ff3935f79.png",
     "index.html": "/memorize-game/index.html",
     "main.688166a8.css.map": "/memorize-game/static/css/main.688166a8.css.map",
-    "main.cff3d6e9.js.map": "/memorize-game/static/js/main.cff3d6e9.js.map"
+    "main.eba34abd.js.map": "/memorize-game/static/js/main.eba34abd.js.map"
   },
   "entrypoints": [
     "static/css/main.688166a8.css",
-    "static/js/main.cff3d6e9.js"
+    "static/js/main.eba34abd.js"
   ]
 }
