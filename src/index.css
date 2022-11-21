@@ -47,13 +47,13 @@ button:active {
   align-items: center;
   gap: 1rem;
 }
-.control span {
+.mode span {
   margin-right: 10px;
   padding: 5px;
   border: 1px solid #f8eca0;
   cursor: pointer;
 }
-.control span.active {
+.mode span.active {
   background-color: #f8eca0;
   color: #605040;
 }
@@ -95,9 +95,9 @@ button:active {
   filter: grayscale(0.5);
 }
 .card__front {
-  transform: rotateX(90deg);
+  transform: scale(0);
   position: absolute;
-  transition: 0.3s;
+  transition: 0.4s;
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -105,20 +105,20 @@ button:active {
   left: 0;
 }
 .card__flip .card__front {
-  transform: rotateX(0deg);
-  transition-delay: 0.3s;
+  transform: scale(1);
+  transition-delay: 0.4s;
 }
 
 .card__back {
-  transition: 0.3s;
-  transition-delay: 0.3s;
+  transition: 0.4s;
+  transition-delay: 0.4s;
   display: block;
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
 .card__flip .card__back {
-  transform: rotateX(90deg);
+  transform: scale(0);
   transition-delay: 0s;
 }
 
@@ -144,11 +144,9 @@ button:active {
 @media (max-width: 576px) {
   h1 {
     font-size: 1.25rem;
-    margin: 1rem 0;
   }
-  button {
-    margin-bottom: 3rem;
-    max-width: 420px;
+  .App {
+    gap: 1rem 0;
   }
 }
 @media (max-width: 440px) {
@@ -166,7 +164,14 @@ button:active {
     margin: 0;
   }
 }
-
+@media (max-width: 768px) {
+  button {
+    flex: 0 0 100%;
+  }
+  .mode {
+    display: none;
+  }
+}
 @media (min-width: 992px) {
   .card:hover {
     filter: brightness(1.2) grayscale(0);
@@ -176,7 +181,7 @@ button:active {
     filter: brightness(0.85);
     color: white;
   }
-  .control span:hover {
+  .mode span:hover {
     background-color: #b0aca0;
   }
 }
