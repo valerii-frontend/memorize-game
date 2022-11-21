@@ -19,7 +19,7 @@ const App = () => {
   const [pickSecond, setPickSecond] = useState(null);
   const [disabled, setDisabled] = useState(false);
 
-  //   init and shuffle the board
+  //   shuffle the board
   const randomizeCards = () => {
     const arr = [...images, ...images].sort(() => Math.random() - 0.5).map((tile) => ({ ...tile, id: Math.random() }));
     setCards(arr);
@@ -55,6 +55,10 @@ const App = () => {
       }
     }
   }, [pickSecond, pickFirst]);
+  // init
+  useEffect(() => {
+    randomizeCards();
+  }, []);
   return (
     <div className='App'>
       <h1>Heroes 3 of Might and Magic memory game</h1>
