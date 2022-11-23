@@ -70,11 +70,11 @@ button:active {
   border-image: url("../public/images/frame.png") 30 round;
   background-color: grey;
 }
-.board.medium {
+.board.regular {
   width: 620px;
   height: 620px;
 }
-.board.hard {
+.board.big {
   width: 820px;
   height: 620px;
 }

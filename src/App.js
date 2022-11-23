@@ -44,6 +44,7 @@ const App = () => {
   const [pickSecond, setPickSecond] = useState(null);
   const [disabled, setDisabled] = useState(false);
   const [mode, setMode] = useState("easy");
+  const [size, setSize] = useState("small");
   //   shuffle the board
   const randomizeCards = () => {
     let arr = [];
@@ -96,7 +97,7 @@ const App = () => {
   // init
   useEffect(() => {
     randomizeCards();
-  }, [mode]);
+  }, [mode, size]);
 
   return (
     <div className='App'>
@@ -129,10 +130,35 @@ const App = () => {
             Hard
           </span>
         </div>
+        <div className='size mode'>
+          <span
+            className={size === "small" ? "active" : ""}
+            onClick={() => {
+              setSize("small");
+              randomizeCards();
+            }}>
+            Small
+          </span>
+          <span
+            className={size === "regular" ? "active" : ""}
+            onClick={() => {
+              setSize("regular");
+              randomizeCards();
+            }}>
+            Regular
+          </span>
+          <span
+            className={size === "big" ? "active" : ""}
+            onClick={() => {
+              setSize("big");
+              randomizeCards();
+            }}>
+            Big
+          </span>
+        </div>
         <div className='turns'>Total turns: {turns}</div>
       </div>
-
-      <div className={mode === "medium" ? "board medium" : mode === "hard" ? "board hard" : "board"}>
+      <div className={size === "regular" ? "board regular" : size === "big" ? "board big" : "board"}>
         {cards.map((card) => (
           <Card
             card={card}
