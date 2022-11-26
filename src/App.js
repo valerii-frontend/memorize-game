@@ -2,40 +2,41 @@ import { useState, useEffect } from "react";
 import Card from "./components/Card";
 
 const easy = [
-  { src: "/images/attack.png", matched: false },
-  { src: "/images/defense.png", matched: false },
-  { src: "/images/power.png", matched: false },
-  { src: "/images/knowledge.png", matched: false },
+  { src: "./images/attack.png", matched: false },
+  { src: "./images/defense.png", matched: false },
+  { src: "./images/power.png", matched: false },
+  { src: "./images/knowledge.png", matched: false },
 ];
 const medium = [
-  { src: "/images/attack.png", matched: false },
-  { src: "/images/defense.png", matched: false },
-  { src: "/images/power.png", matched: false },
-  { src: "/images/knowledge.png", matched: false },
-  { src: "/images/fire.png", matched: false },
-  { src: "/images/water.png", matched: false },
-  { src: "/images/air.png", matched: false },
-  { src: "/images/earth.png", matched: false },
-  { src: "/images/necromancy.png", matched: false },
+  { src: "./images/attack.png", matched: false },
+  { src: "./images/defense.png", matched: false },
+  { src: "./images/power.png", matched: false },
+  { src: "./images/knowledge.png", matched: false },
+  { src: "./images/fire.png", matched: false },
+  { src: "./images/water.png", matched: false },
+  { src: "./images/air.png", matched: false },
+  { src: "./images/earth.png", matched: false },
+  { src: "./images/necromancy.png", matched: false },
 ];
 const hard = [
-  { src: "/images/attack.png", matched: false },
-  { src: "/images/defense.png", matched: false },
-  { src: "/images/power.png", matched: false },
-  { src: "/images/knowledge.png", matched: false },
-  { src: "/images/fire.png", matched: false },
-  { src: "/images/water.png", matched: false },
-  { src: "/images/air.png", matched: false },
-  { src: "/images/earth.png", matched: false },
-  { src: "/images/archery.png", matched: false },
-  { src: "/images/armorer.png", matched: false },
-  { src: "/images/artillery.png", matched: false },
-  { src: "/images/ballistics.png", matched: false },
-  { src: "/images/diplomacy.png", matched: false },
-  { src: "/images/gold.png", matched: false },
-  { src: "/images/leadership.png", matched: false },
-  { src: "/images/logistics.png", matched: false },
+  { src: "./images/attack.png", matched: false },
+  { src: "./images/defense.png", matched: false },
+  { src: "./images/power.png", matched: false },
+  { src: "./images/knowledge.png", matched: false },
+  { src: "./images/fire.png", matched: false },
+  { src: "./images/water.png", matched: false },
+  { src: "./images/air.png", matched: false },
+  { src: "./images/earth.png", matched: false },
+  { src: "./images/archery.png", matched: false },
+  { src: "./images/armorer.png", matched: false },
+  { src: "./images/artillery.png", matched: false },
+  { src: "./images/ballistics.png", matched: false },
+  { src: "./images/diplomacy.png", matched: false },
+  { src: "./images/gold.png", matched: false },
+  { src: "./images/leadership.png", matched: false },
+  { src: "./images/logistics.png", matched: false },
 ];
+const res = { src: "./images/resistance.png", matched: false };
 
 const App = () => {
   const [cards, setCards] = useState([]);
@@ -48,12 +49,60 @@ const App = () => {
   //   shuffle the board
   const randomizeCards = () => {
     let arr = [];
-    if (mode === "easy") {
+    let EASY = mode === "easy";
+    let MEDIUM = mode === "medium";
+    let HARD = mode === "hard";
+    let SMALL = size === "small";
+    let REGULAR = size === "regular";
+    let LARGE = size === "lg";
+    if (EASY && SMALL) {
       arr = [...easy, ...easy, ...easy, ...easy];
-    } else if (mode === "medium") {
+    } else if (EASY && REGULAR) {
+      arr = [
+        ...easy,
+        ...easy,
+        ...easy,
+        ...easy,
+        ...easy,
+        ...easy,
+        ...easy,
+        ...easy,
+        easy[0],
+        easy[0],
+        easy[1],
+        easy[1],
+      ];
+    } else if (EASY && LARGE) {
+      arr = [
+        ...easy,
+        ...easy,
+        ...easy,
+        ...easy,
+        ...easy,
+        ...easy,
+        ...easy,
+        ...easy,
+        ...easy,
+        ...easy,
+        ...easy,
+        ...easy,
+      ];
+    } else if (MEDIUM && SMALL) {
+      arr = [...medium, ...medium].filter((el) => el.src !== "./images/necromancy.png");
+    } else if (MEDIUM && REGULAR) {
       arr = [...medium, ...medium, ...medium, ...medium];
-    } else {
+    } else if (MEDIUM && LARGE) {
+      arr = [...medium, ...medium, ...medium, ...medium, ...medium, ...medium].filter(
+        (el) => el.src !== "./images/necromancy.png"
+      );
+    } else if (HARD && SMALL) {
+      setSize("regular");
+    } else if (HARD && REGULAR) {
+      arr = [...hard, ...hard, res, res, res, res];
+    } else if (HARD && LARGE) {
       arr = [...hard, ...hard, ...hard];
+    } else {
+      arr = [...hard, ...hard, ...hard, ...hard, ...hard, ...hard];
     }
 
     let init = arr.sort(() => Math.random() - 0.5).map((tile) => ({ ...tile, id: Math.random() }));
@@ -109,6 +158,9 @@ const App = () => {
             className={mode === "easy" ? "active" : ""}
             onClick={() => {
               setMode("easy");
+              if (size === "extra") {
+                setSize("small");
+              }
               randomizeCards();
             }}>
             Easy
@@ -117,6 +169,9 @@ const App = () => {
             className={mode === "medium" ? "active" : ""}
             onClick={() => {
               setMode("medium");
+              if (size === "extra") {
+                setSize("small");
+              }
               randomizeCards();
             }}>
             Med
@@ -125,6 +180,9 @@ const App = () => {
             className={mode === "hard" ? "active" : ""}
             onClick={() => {
               setMode("hard");
+              if (size === "extra") {
+                setSize("regular");
+              }
               randomizeCards();
             }}>
             Hard
@@ -135,6 +193,9 @@ const App = () => {
             className={size === "small" ? "active" : ""}
             onClick={() => {
               setSize("small");
+              if (mode === "extra") {
+                setMode("easy");
+              }
               randomizeCards();
             }}>
             Small
@@ -143,22 +204,40 @@ const App = () => {
             className={size === "regular" ? "active" : ""}
             onClick={() => {
               setSize("regular");
+              if (mode === "extra") {
+                setMode("easy");
+              }
               randomizeCards();
             }}>
             Regular
           </span>
           <span
-            className={size === "big" ? "active" : ""}
+            className={size === "lg" ? "active" : ""}
             onClick={() => {
-              setSize("big");
+              setSize("lg");
+              if (mode === "extra") {
+                setMode("easy");
+              }
               randomizeCards();
             }}>
-            Big
+            Large
+          </span>
+          <span
+            className={size === "extra" ? "active ex" : "ex"}
+            onClick={() => {
+              setSize("extra");
+              setMode("extra");
+              randomizeCards();
+            }}>
+            Extra
           </span>
         </div>
         <div className='turns'>Total turns: {turns}</div>
       </div>
-      <div className={size === "regular" ? "board regular" : size === "big" ? "board big" : "board"}>
+      <div
+        className={
+          size === "regular" ? "board regular" : size === "lg" ? "board lg" : size === "extra" ? "board extra" : "board"
+        }>
         {cards.map((card) => (
           <Card
             card={card}
