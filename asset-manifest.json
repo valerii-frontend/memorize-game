@@ -1,15 +1,16 @@
 {
   "files": {
-    "main.css": "/memorize-game/static/css/main.688166a8.css",
-    "main.js": "/memorize-game/static/js/main.eba34abd.js",
-    "static/media/frame.png": "/memorize-game/static/media/frame.8fb3333625dcd349cb81.png",
-    "static/media/back.png": "/memorize-game/static/media/back.459de01af89ff3935f79.png",
-    "index.html": "/memorize-game/index.html",
-    "main.688166a8.css.map": "/memorize-game/static/css/main.688166a8.css.map",
-    "main.eba34abd.js.map": "/memorize-game/static/js/main.eba34abd.js.map"
+    "main.css": "/static/css/main.07398c93.css",
+    "main.js": "/static/js/main.a69520d9.js",
+    "static/media/frame.png": "/static/media/frame.8fb3333625dcd349cb81.png",
+    "static/media/background.jpg": "/static/media/background.7db2199d090c55aba8ec.jpg",
+    "static/media/back.png": "/static/media/back.459de01af89ff3935f79.png",
+    "index.html": "/index.html",
+    "main.07398c93.css.map": "/static/css/main.07398c93.css.map",
+    "main.a69520d9.js.map": "/static/js/main.a69520d9.js.map"
   },
   "entrypoints": [
-    "static/css/main.688166a8.css",
-    "static/js/main.eba34abd.js"
+    "static/css/main.07398c93.css",
+    "static/js/main.a69520d9.js"
   ]
 }
