@@ -8,6 +8,18 @@ body {
   background: #333;
   color: #f8eca0;
   text-align: center;
+  position: relative;
+}
+body:before {
+  content: "";
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0.2;
+  z-index: -1;
+  background: url("../public/images/background.jpg") center/cover no-repeat;
 }
 .App {
   display: flex;
@@ -75,7 +87,7 @@ button:active {
   margin: 0 auto;
   border: 10px solid transparent;
   border-image: url("../public/images/frame.png") 30 round;
-  background-color: grey;
+  background-color: rgba(100, 100, 100, 0.55);
 }
 .board.regular {
   width: 620px;
