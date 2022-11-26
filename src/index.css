@@ -89,7 +89,7 @@ button:active {
   width: 1220px;
   height: 820px;
   transform: scale(0.8) translate(-30px);
-  margin-top: -100px;
+  margin: -100px 0 0;
 }
 .card {
   position: relative;
@@ -155,6 +155,10 @@ button:active {
   .ex {
     display: none;
   }
+  .board {
+    transform: scale(0.8);
+    margin: -50px 0 0;
+  }
 }
 @media (max-width: 576px) {
   h1 {
@@ -185,6 +189,10 @@ button:active {
   }
   .mode {
     display: none;
+  }
+  .board {
+    margin: 0;
+    transform: none;
   }
 }
 @media (min-width: 992px) {
